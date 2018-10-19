@@ -47,6 +47,8 @@ inject_credentials
 
 mvn -f ${WS_DIR}/pom.xml \
     clean install \
-    -Pexamples,integrations,spotbugs,javadoc,docs,sources,ossrh-releases
+    -DskipTests \
+    -Pintegrations,javadoc,docs,sources,ossrh-releases | \
+    tee ${WERCKER_REPORT_ARTIFACTS_DIR}/build.log
 
 examples/archetypes/test-archetypes.sh

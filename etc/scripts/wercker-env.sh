@@ -61,7 +61,7 @@ inject_credentials(){
 }
 
 if [ "${WERCKER}" = "true" ] ; then
-    export MAVEN_OPTS="-Dmaven.repo.local=${WERCKER_CACHE_DIR}/local_repository -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn"
+    export MAVEN_OPTS="-Dmaven.repo.local=${WERCKER_CACHE_DIR}/local_repository"
     rm -rf ~/.m2/settings* ~/.gitconfig ~/.ssh ${WERCKER_CACHE_DIR}/local_repository/io/helidon
     # Work around https://github.com/oracle/oci-java-sdk/issues/25
     TEMP_OCI_SDK_DIR=$(mktemp -d "oci-java-sdk.XXX")
